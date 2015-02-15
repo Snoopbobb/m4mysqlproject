@@ -22,8 +22,8 @@ $template = '';
 foreach ($results as $heading => $row) {
 	$template .=
 			'<tr>
-				<td>' . $row['first_name']  . '</td>
-				<td>' . $row['last_name'] . '</td>
+				<td>' . ucfirst($row['first_name'])  . '</td>
+				<td>' . ucfirst($row['last_name']) . '</td>
 				<td>' . $row['email'] . '</td>
 				<td>' . '<a href="invoice_details.php?id=' . $row['id'] . '">New Invoice</a></td>
 				<td>' . '<a href="edit_customer.php?id=' . $row['id'] . '">Edit</a></td>

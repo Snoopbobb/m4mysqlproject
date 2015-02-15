@@ -3,6 +3,9 @@ require('initialize.php');
 	
 	// Initialize SQL statement and template for viewing and editing individual customer
 	if(isset($_GET['id'])){
+		if($_GET['id'] === "") {
+			header('Location: customers.php');
+		} 
 		$sql = "
 			SELECT *
 			FROM customer
@@ -28,21 +31,23 @@ require('initialize.php');
 		$last_name = $row['last_name'];
 		$email = $row['email'];
 		$id = $row['id'];
+
+		// Set up template for viewing 
 		$template = "
-		<form method=\"POST\" action=\"update_customer.php\">
+		$message
+		<form method=\"POST\" action=\"update_customer.php?id=$id\">
 			<label>First Name</label>
 			<input type=\"text\" name=\"first_name\" value=\"$first_name\">
 			<label>Last Name</label>
 			<input type=\"text\" name=\"last_name\" value=\"$last_name\">
 			<label>Email Name</label>
 			<input type=\"email\" name=\"email\" value=\"$email\">
-			<select>
-				<option name=\"male\">Male</option>
-				<option name=\"female\">Female</option>
+			<select name=\"gender\">
+				<option value=\"male\">Male</option>
+				<option value=\"female\">Female</option>
 			</select>
 			<button>Update</button>
 		</form>";
-		
 	} else  {
 		// This will initialize template for new customer
 		$template = '
@@ -53,9 +58,9 @@ require('initialize.php');
 			<input type="text" name="last_name" value="">
 			<label>Email Name</label>
 			<input type="email" name="email" value="">
-			<select>
-				<option name="male">Male</option>
-				<option name="female">Female</option>
+			<select name="gender">
+				<option value="male">Male</option>
+				<option value="female">Female</option>
 			</select>
 			<button>ADD</button>
 		</form>';

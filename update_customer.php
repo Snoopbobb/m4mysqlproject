@@ -3,12 +3,15 @@
 // Initialize Code
 require('initialize.php');
 
+$id = $_GET['id'];
+
 $sql = "
-	INSERT INTO customer (
-		first_name, last_name, email, gender, customer_since
-	) VALUES (
-		:first_name, :last_name, :email, :gender, CURDATE()
-	)
+	UPDATE customer
+	SET first_name = :first_name, 
+		last_name = :last_name, 
+		email = :email, 
+		gender = :gender
+	WHERE id = :id
 	";
 
 $sql_values = [
@@ -16,6 +19,7 @@ $sql_values = [
 	':last_name' => $_POST['last_name'],
 	':email' => $_POST['email'],
 	':gender' => $_POST['gender'],
+	':id' => $_GET['id'],
 ];
 
 // Make a PDO statement
@@ -30,5 +34,5 @@ $statement = DB::prepare($sql);
 DB::execute($statement, $sql_values);
 
 // Redirect
-header('Location: edit_customer.php?id=' . DB::lastInsertId());
+header("Location: edit_customer.php?id=$id");
 exit();

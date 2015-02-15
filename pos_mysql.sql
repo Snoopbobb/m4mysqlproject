@@ -44,7 +44,7 @@ CREATE TABLE invoice_item (
 --
 
 INSERT INTO customer (first_name, last_name, email, gender, customer_since)
-    VALUES ('moe', 'o\'dools', 'moe@moes.com', 'male', CURDATE());
+    VALUES ('homer', 'simpson', 'doh@moes.com', 'male', CURDATE());
 
 INSERT INTO customer (first_name, last_name, email, gender, customer_since)
     VALUES ('frank', 'sinatra', 'blueeyes@swinger.com', 'male', CURDATE());
@@ -113,34 +113,54 @@ INSERT INTO invoice (customer_id, created_at) VALUES (9, NOW());
 
 INSERT INTO invoice (customer_id, created_at) VALUES (10, NOW());
 
-INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (1, 1, 13);
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (1, 1, 24);
 
-INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (2, 4, 4);
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (2, 2, 15);
 
-INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (2, 8, 2);
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (3, 3, 7);
 
-INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (3, 3, 2);
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (3, 4, 7);
 
-INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (3, 5, 4);
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (3, 4, 7);
 
-INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (4, 8, 10);
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (3, 5, 7);
 
-INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (4, 1, 5);
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (3, 9, 7);
 
-INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (5, 6, 9);
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (4, 1, 10);
 
-INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (5, 3, 9);
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (4, 5, 5);
 
-INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (6, 9, 11);
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (4, 10, 1);
 
-INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (6, 3, 11);
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (5, 5, 12);
 
-INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (7, 2, 4);
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (6, 5, 1);
 
-INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (8, 5, 7);
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (6, 3, 1);
 
-INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (9, 7, 6);
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (6, 1, 1);
 
-INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (9, 2, 2);
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (7, 7, 7);
 
-INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (10, 10, 2);
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (7, 7, 1);
+
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (8, 6, 3);
+
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (8, 9, 8);
+
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (9, 1, 25);
+
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (10, 3, 4);
+
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (10, 4, 7);
+
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (10, 5, 4);
+
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (10, 7, 3);
+
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (10, 9, 2);
+
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (10, 2, 6);
+
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (10, 6, 8);
