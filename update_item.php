@@ -6,19 +6,15 @@ require('Initialize/initialize.php');
 $id = $_GET['id'];
 
 $sql = "
-	UPDATE customer
-	SET first_name = :first_name, 
-		last_name = :last_name, 
-		email = :email, 
-		gender = :gender
+	UPDATE item
+	SET name = :name, 
+		price = :price 
 	WHERE id = :id
 	";
 
 $sql_values = [
-	':first_name' => $_POST['first_name'],
-	':last_name' => $_POST['last_name'],
-	':email' => $_POST['email'],
-	':gender' => $_POST['gender'],
+	':name' => $_POST['name'],
+	':price' => $_POST['price'],
 	':id' => $_GET['id']
 ];
 
@@ -34,5 +30,5 @@ $statement = DB::prepare($sql);
 DB::execute($statement, $sql_values);
 
 // Redirect
-header("Location: edit_customer.php?id=$id");
+header("Location: edit_item.php?id=$id");
 exit();

@@ -1,34 +1,9 @@
 <?php 
 // Initialize Code
-require('initialize.php');
+require('Initialize/initialize.php');
 
-
-$sql = "
-	SELECT *
-	FROM item
-	";
-
-// Make a PDO statement
-$statement = DB::prepare($sql);
-
-// Execute
-DB::execute($statement);
-
-// Get all the results of the statement into an array
-$results = $statement->fetchAll();
-
-// Loop array to get each row
-$template = '';
-foreach ($results as $heading => $row) {
-	$template .=
-			'<tr>
-				<td>' . $row['name']  . '</td>
-				<td>' . $row['price'] . '</td>
-				<td>' . '<a href="edit_item.php?id=' . $row['id'] . '">Edit</a></td>
-				<td>' . '<a href="delete_item.php?id=' . $row['id'] . '">Remove</a></td>
-			</tr>';
-}
-
+// Call method to get all Items
+$template = Item::getAllItems();
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +22,7 @@ foreach ($results as $heading => $row) {
 		</tr>
 			<?php echo $template; ?>
 	</table>
-	<a href="new_item.php">Add Item</a>
+	<a href="edit_item.php">Add Item</a>
 </body>
 </html>
 

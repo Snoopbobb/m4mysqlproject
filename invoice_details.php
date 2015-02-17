@@ -1,46 +1,21 @@
 <?php 
-require('initialize.php');
+// Initialize files
+require('Initialize/initialize.php');
 
-	$id = $_GET['id'];
+// Set $id
+$id = $_GET['id'];
 
-	$sql = "
-		SELECT CONCAT(c.first_name, ' ', c.last_name) AS customer_name, quantity, i.name, price, (price * quantity) AS total
-		FROM invoice_item AS t, invoice AS v, item AS i, customer AS c
-		WHERE v.id = t.invoice_id
-		AND i.id = t.item_id
-		AND c.id = v.customer_id
-		AND v.id = $id
-		";
-	$prepare_values = [
-		':id' => $_GET['id']
-		];
+// Call method to get customer's full name
+$customer = Customer::getCustomerNameByID($id);
 
-// Make a PDO statement
-$statement = DB::prepare($sql);
+// Get template
+$template = Invoice::getInvoiceDetails($id);
 
-// Execute
-DB::execute($statement);
+// Get drop down options
+$item = Item::getItemOptions();
 
-// Get all the results of the statement into an array
-$results = $statement->fetchAll();
-
-// Loop array to get each row
-$total = [];
-$template = '';
-foreach ($results as $heading => $row) {
-	$customer = $row['customer_name'];
-	$total[] .= $row['total'];
-	$sum = array_sum($total);
-	$template .=
-			'<tr>
-				<td>' . $row['quantity']  . '</td>
-				<td>' . $row['name']  . '</td>
-				<td>' . $row['price']  . '</td>
-				<td>' . $row['total'] . '</td>
-				<td>' . '<a href="delete_invoice.php?id=' . $id . '">Remove</a></td>
-			</tr>';
-}
-
+// Get invoice_items total
+$sum = Invoice::getTotal($id);
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +26,7 @@ foreach ($results as $heading => $row) {
 </head>
 <body>
 	<a href="/">Home</a>
-	<h1>Invoice: <?php echo $id; ?> Customer: <?php echo ucwords($customer); ?></h1>
+	<h1>Invoice: <?php echo $id . " Customer: " . ucwords($customer); ?></h1>
 	<table border="1">
 		<tr>
 			<th>Quantity</th>
@@ -67,13 +42,12 @@ foreach ($results as $heading => $row) {
 			<td>$<?php echo number_format($sum, 2); ?></td>
 		</tr>
 	</table>
-	<form action="">
+	<form action="new_invoice.php?id=<?php echo $id; ?>" method="POST">
 		<label>QTY</label>
 		<input type="text" name="quantity">
 		<label>Item</label>
-		<select>
-			<option name=" ">Tequila</option>
-			<option>Draft Beer</option>
+		<select name="item_id">
+			<?php echo $item; ?>
 		</select>
 		<button>Add</button>
 	</form>

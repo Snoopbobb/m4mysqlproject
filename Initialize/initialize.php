@@ -8,7 +8,11 @@ ini_set('display_errors', TRUE);
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
-define('DB_NAME', 'pos');
+define('DB_NAME', 'posbetter');
 
 // Include Common Files
-require('db.php');
+require('Initialize/DB.php');
+require('Initialize/Manager.php');
+require('Initialize/Customer.php');
+require('Initialize/Item.php');
+require('Initialize/Invoice.php');

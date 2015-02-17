@@ -1,20 +1,8 @@
 <?php 
 // Initialize Code
-require('initialize.php');
+require('Initialize/initialize.php');
 
-$id = $_GET['id'];
-
-$sql = "
-	DELETE
-	FROM customer
-	WHERE id = $id 
-	";
-
-// Make a PDO statement
-$statement = DB::prepare($sql);
-
-// Execute
-DB::execute($statement);
+Customer::deleteByID($_GET['id']);
 
 header("Location: customers.php");
 exit();
