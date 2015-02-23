@@ -1,6 +1,6 @@
 <?php
-
 // Initialize Code
+<<<<<<< HEAD
 require('initialize.php');
 
 // Insert new customer data
@@ -59,3 +59,9 @@ DB::execute($statement2, $sql_values2);
 // Redirect
 header('Location: edit_customer.php?id=' . $customer_id);
 exit();
+=======
+require('Initialize/initialize.php');
+
+//  Create new customer
+new Customer($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['gender']);
+>>>>>>> 0f4cc642c6f6fafaf19029480c346bb711bb82f2

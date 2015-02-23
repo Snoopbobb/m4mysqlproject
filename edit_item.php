@@ -1,4 +1,5 @@
 <?php 
+<<<<<<< HEAD
 require('initialize.php');
 	if(isset($_GET['id'])){
 		if($_GET['id'] === "") {
@@ -46,6 +47,13 @@ require('initialize.php');
 			<button>Add</button>
 		</form>';
 	}
+=======
+//  Initialize files
+require('Initialize/initialize.php');
+
+// call update method and return template
+$template = Item::update();
+>>>>>>> 0f4cc642c6f6fafaf19029480c346bb711bb82f2
 ?>
 
 <!DOCTYPE html>

@@ -1,8 +1,11 @@
 <?php 
-require('initialize.php');
+// Initialize files
+require('Initialize/initialize.php');
 
-	$id = $_GET['id'];
+// Set $id
+$id = $_GET['id'];
 
+<<<<<<< HEAD
 	$sql = "
 		SELECT CONCAT(c.first_name, ' ', c.last_name) AS customer_name, quantity, i.name, 
 		price, (price * quantity) AS total, t.id AS invoice_item_id
@@ -15,10 +18,15 @@ require('initialize.php');
 	$prepare_values = [
 		':id' => $_GET['id']
 		];
+=======
+// Call method to get customer's full name
+$customer = Customer::getCustomerNameByID($id);
+>>>>>>> 0f4cc642c6f6fafaf19029480c346bb711bb82f2
 
-// Make a PDO statement
-$statement = DB::prepare($sql);
+// Get template
+$template = Invoice::getInvoiceDetails($id);
 
+<<<<<<< HEAD
 // Execute
 DB::execute($statement);
 
@@ -63,6 +71,13 @@ foreach ($results2 as $heading2 => $row2) {
 	$item .= '<option value="' . $row2['id'] . '">' . $row2['name'] . '</option>';
 }
 
+=======
+// Get drop down options
+$item = Item::getItemOptions();
+
+// Get invoice_items total
+$sum = Invoice::getTotal($id);
+>>>>>>> 0f4cc642c6f6fafaf19029480c346bb711bb82f2
 ?>
 
 <!DOCTYPE html>
@@ -73,7 +88,11 @@ foreach ($results2 as $heading2 => $row2) {
 </head>
 <body>
 	<a href="/">Home</a>
+<<<<<<< HEAD
 	<h1>Invoice: <?php echo $id . " " . ucwords($customer); ?></h1>
+=======
+	<h1>Invoice: <?php echo $id . " Customer: " . ucwords($customer); ?></h1>
+>>>>>>> 0f4cc642c6f6fafaf19029480c346bb711bb82f2
 	<table border="1">
 		<tr>
 			<th>Quantity</th>

@@ -1,7 +1,11 @@
 <?php
 
 // Initialize Code
+<<<<<<< HEAD
 require('initialize.php');
+=======
+require('Initialize/initialize.php');
+>>>>>>> 0f4cc642c6f6fafaf19029480c346bb711bb82f2
 
 $id = $_GET['id'];
 

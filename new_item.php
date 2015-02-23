@@ -1,6 +1,7 @@
 <?php
 
 // Initialize Code
+<<<<<<< HEAD
 require('initialize.php');
 
 $sql = "
@@ -30,3 +31,8 @@ DB::execute($statement, $sql_values);
 // Redirect
 header('Location: items.php?id=' . DB::lastInsertId());
 exit();
+=======
+require('Initialize/initialize.php');
+
+new Item($_POST['name'], $_POST['price']);
+>>>>>>> 0f4cc642c6f6fafaf19029480c346bb711bb82f2

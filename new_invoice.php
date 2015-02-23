@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 
 // Initialize Code
 require('initialize.php');
@@ -31,3 +32,10 @@ DB::execute($statement, $sql_values);
 // Redirect
 header('Location: invoice_details.php?id=' . $id);
 exit();
+=======
+// Initialize Code
+require('Initialize/initialize.php');
+
+// Create new invoice detail
+new Invoice($_GET['id'], $_POST['item_id'], $_POST['quantity']);
+>>>>>>> 0f4cc642c6f6fafaf19029480c346bb711bb82f2
