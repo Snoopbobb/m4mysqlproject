@@ -19,7 +19,7 @@ $sql_values = [
 	':last_name' => $_POST['last_name'],
 	':email' => $_POST['email'],
 	':gender' => $_POST['gender'],
-	':id' => $_GET['id'],
+	':id' => $_GET['id']
 ];
 
 // Make a PDO statement

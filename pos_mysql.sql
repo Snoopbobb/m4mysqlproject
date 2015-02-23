@@ -143,7 +143,7 @@ INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (6, 1, 1);
 
 INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (7, 7, 7);
 
-INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (7, 7, 1);
+INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (7, 10, 7);
 
 INSERT INTO invoice_item (invoice_id, item_id, quantity) VALUES (8, 6, 3);
 

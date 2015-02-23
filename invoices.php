@@ -46,7 +46,7 @@ foreach ($results as $heading => $row) {
 		<tr>
 			<th>Invoice</th>
 			<th>Name</th>
-			<th>Total</th>
+			<th>Sub-Total</th>
 		</tr>
 			<?php echo $template; ?>
 	</table>

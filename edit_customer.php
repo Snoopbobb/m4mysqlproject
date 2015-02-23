@@ -77,6 +77,7 @@ require('initialize.php');
 <body>
 	<a href="/">Home</a>
 	<?php echo $template; ?>
+	<a href="customers.php">Back To Customers</a>
 	<a href="customers.php">Cancel</a>
 </body>
 </html>

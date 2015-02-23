@@ -47,7 +47,7 @@ foreach ($results as $heading => $row) {
 		</tr>
 			<?php echo $template; ?>
 	</table>
-	<a href="new_item.php">Add Item</a>
+	<a href="edit_item.php">Add Item</a>
 </body>
 </html>
 

@@ -3,17 +3,19 @@
 // Initialize Code
 require('initialize.php');
 
+$id = $_GET['id'];
+
 $sql = "
-	INSERT INTO item (
-		name, price
-	) VALUES (
-		:name, :price
-	)
+	UPDATE item
+	SET name = :name, 
+		price = :price 
+	WHERE id = :id
 	";
 
 $sql_values = [
 	':name' => $_POST['name'],
 	':price' => $_POST['price'],
+	':id' => $_GET['id']
 ];
 
 // Make a PDO statement
@@ -28,5 +30,5 @@ $statement = DB::prepare($sql);
 DB::execute($statement, $sql_values);
 
 // Redirect
-header('Location: items.php?id=' . DB::lastInsertId());
+header("Location: edit_item.php?id=$id");
 exit();
