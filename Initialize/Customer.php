@@ -67,7 +67,7 @@ class Customer extends Manager {
 	/***************************************************
 			Method to retrieve all customers
 	***************************************************/
-	public function getAll(){
+	public static function getAll(){
 		$sql = "
 			SELECT *
 			FROM customer
@@ -101,7 +101,7 @@ class Customer extends Manager {
 	/***************************************************
 		Method to retrieve customer name by ID
 	***************************************************/
-	public function getCustomerNameByID($id){
+	public static function getCustomerNameByID($id){
 		$sql = "
 			SELECT CONCAT(c.first_name, ' ', c.last_name) AS customer_name
 			FROM customer AS c
@@ -123,7 +123,7 @@ class Customer extends Manager {
 	/****************************************************************
 		Method to update customer also creates form for new customer
 	*****************************************************************/
-	public function update(){
+	public static function update(){
 		// Initialize SQL statement and template for viewing and editing individual customer
 		if(isset($_GET['id'])){
 			if($_GET['id'] === "") {
@@ -157,7 +157,6 @@ class Customer extends Manager {
 
 			// Set up template for viewing 
 			$template = "
-			$message
 			<form method=\"POST\" action=\"update_customer.php?id=$id\">
 				<label>First Name</label>
 				<input type=\"text\" name=\"first_name\" value=\"$first_name\">
@@ -194,7 +193,7 @@ class Customer extends Manager {
 	/***************************************************
 			Method to delete customer by ID
 	***************************************************/
-	public function deleteByID($id){ 
+	public static function deleteByID($id){ 
 		$sql = "
 			DELETE
 			FROM customer

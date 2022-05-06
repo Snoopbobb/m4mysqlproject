@@ -37,7 +37,7 @@ class Item {
 	/*********************************************************
 		method to return All Items as a template
 	*********************************************************/
-	public function getAllItems(){
+	public static function getAllItems(){
 		$sql = "
 		SELECT *
 		FROM item
@@ -69,7 +69,7 @@ class Item {
 	/*********************************************************
 			Method to update Items and return template
 	*********************************************************/
-	public function update(){
+	public static function update(){
 		if(isset($_GET['id'])){
 			if($_GET['id'] === "") {
 				header('Location: customers.php');
@@ -122,7 +122,8 @@ class Item {
 	/*********************************************************
 		Method to return drop down options from Items table
 	*********************************************************/
-	public function getItemOptions(){
+	public static function getItemOptions(){
+		$item = "";
 		// Loop through items to populate drop down
 		$sql2 = "
 			SELECT * FROM item
@@ -148,7 +149,7 @@ class Item {
 	/*********************************************************
 				Method to delete Items by ID
 	*********************************************************/
-	public function deleteByID($id) {
+	public static function deleteByID($id) {
 		$sql = "
 			DELETE
 			FROM item

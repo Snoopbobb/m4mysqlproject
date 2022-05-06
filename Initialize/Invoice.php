@@ -42,7 +42,7 @@ class Invoice {
 	/*********************************************************
 			Method to retrieve Invoice Item details
 	*********************************************************/
-	public function getInvoiceDetails($id){
+	public static function getInvoiceDetails($id){
 		$sql = "
 			SELECT quantity, i.name, price, (price * quantity) AS subtotal, t.id AS invoice_item_id
 			FROM invoice_item AS t, invoice AS v, item AS i
@@ -84,7 +84,7 @@ class Invoice {
 	/***************************************************
 				Method to return all Invoices
 	***************************************************/
-	public function getAllInvoices(){
+	public static function getAllInvoices(){
 		$sql = "
 			SELECT v.id, CONCAT(first_name, ' ', last_name) AS name, (quantity * price) AS total
 			FROM customer AS c, invoice AS v, invoice_item AS t, item as i 
@@ -119,7 +119,7 @@ class Invoice {
 	/***************************************************
 			Method to delete Invoice Items By Id
 	***************************************************/
-	public function deleteByID($id){
+	public static function deleteByID($id){
 		// Get invoice id for redirect
 		$sql2 = "
 			SELECT invoice_id
@@ -160,7 +160,7 @@ class Invoice {
 	/***************************************************
 		Method to find total of item details by id
 	***************************************************/
-	public function getTotal($id){
+	public static function getTotal($id){
 		$total[] = 0;
 		$sql = "
 			SELECT (price * quantity) AS subtotal

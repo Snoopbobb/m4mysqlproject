@@ -1,7 +1,7 @@
 <?php 
 class Manager extends DB {
 
-	public function getByID($id, $table, $pk) {
+	public static function getByID($id, $table, $pk) {
 		$q = 'select * from ' . $table . ' where ' . $pk . '= :id';
 		$stmt = $this->db->prepare($q);
 		$stmt->execute(['id'=> $id]);
@@ -9,7 +9,7 @@ class Manager extends DB {
 		return $results;
 	}
 
-	public function getAll($table) {
+	public static function getAll() {
 		$q = "select * from $table";
 		$stmt = $this->db->prepare($q);
 		$stmt->execute();
